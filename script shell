@@ -1,1 +1,52 @@
 
+
+#!/bin/bash
+
+# Autora: Giovanna Nogueira
+# Script desenvolvido para o desafio sensedia
+# DATA: 19/04/2023
+
+echo " "
+
+dir1=/home/challenge-sre-2023/*
+
+
+
+echo " ########   Bem vindo ao script shell desenvolvido para o desafio - sensedia   ######## "
+
+# Definir variáveis de entrada
+echo "Digite o nome do cliente que deseja filtrar:"
+echo " "
+read cliente
+
+echo "Digite o tipo de arquivo que deseja filtrar (Calls ou Metrics) "
+echo " "
+read tipo
+
+echo "Digite a data solicitada"
+echo " "
+read data
+
+echo " "
+echo "AVISO - Após o filtro iremos deletar todos os arquivos para o cliente $cliente"
+echo " "
+
+# Realizar filtro por nome de cliente
+var1=$(ls /home/challenge-sre-2023/ | grep $cliente | grep $tipo | grep $data )
+
+echo "Arquivos encontrados com base nos filtros realizados: $cliente , $tipo , $data"
+echo " "
+echo " "
+echo "            $var1"
+
+
+client_items=$(find $dir1 -name "*cliente2")
+
+# Loop for que percorre todos os arquivos do diretório e exclui cada um deles
+for file in ${client_items}; do
+  if [ -f "$file" ]; then
+    rm "$file"
+    echo "Arquivo excluido do cliente: $file"
+  fi
+done
+
