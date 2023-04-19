@@ -1,4 +1,4 @@
-# Os recursos que eu consegui criar via TF foram Cluster e Task 
+# Os recursos que consegui desenvolver via TF foram Cluster e Task 
 # Rodei o TF dentro de uma instancia Linux na AWS, Criei um diretorio para o projeto e dentro dele criei uma pasta para cada recurso com um main.tf
 
 # Meu TF para task definition ficou assim:
