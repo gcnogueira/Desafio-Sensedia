@@ -1,0 +1,5 @@
+1. Descreva, em sua visão, o que é SRE? Se possível, dê algum exemplo.
+2. Quais são os requisitos para que uma aplicação seja, de fato, auto-escalável?
+3. Você conhece algum pattern sobre a melhor forma de desenvolver e operar sistemas
+distribuídos? Se sim, disserte sobre.
+4. Quais são as principais vantagens de adotar arquiteturas baseadas em containers?
