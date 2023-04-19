@@ -1,1 +1,32 @@
+# Os recursos que eu consegui criar via TF foram Cluster e Task 
+# Rodei o TF dentro de uma instancia Linux na AWS, Criei um diretorio para o projeto e dentro dele criei uma pasta para cada recurso com um main.tf
 
+# Meu TF para task definition ficou assim:
+resource "aws_ecs_task_definition" "desafio" {
+  family                   = "desafio-task"
+  container_definitions    = jsonencode([{
+    name  = "desafio-container"
+    image = "840463421685.dkr.ecr.us-east-1.amazonaws.com/teste-v1:latest"
+    command = ["/bin/bash","script-desafio.sh"]
+  }])
+  execution_role_arn       = "arn:aws:iam::840463421685:role/desafio_task"
+  task_role_arn            = "arn:aws:iam::840463421685:role/desafio_task"
+  network_mode             = "awsvpc"
+  requires_compatibilities = ["FARGATE"]
+
+  memory = 512
+  cpu    = 256
+}
+
+# Meu TF para o Cluster ficou assim:
+resource "aws_ecs_cluster" "desafio" {
+  name = "desafio"
+}
+
+# Tentei criar o service para rodar a task no Cluster com o TF a baixo, porem encontrei alguns erros que não consegui resolver 
+resource "aws_ecs_service" "desafio" {
+  name            = "desafio"
+  cluster         = "ID do meu Cluster"
+  task_definition = "ARN da minha task definition"
+  desired_count   = 1
+}
