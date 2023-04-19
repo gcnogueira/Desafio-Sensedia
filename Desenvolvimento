@@ -1,1 +1,6 @@
-
+Para o desenvolvimento do desafio escolhi subir uma instancia EC2 (linux) na aws com todos as ferramentas necessarias (terraform, docker, aws cli) para o desenvolvimento da automação
+Escolhi utilizar a linguagem de programação shell pois é a que tenho mais familiaridade e facilidade em manipular arquivos do linux
+Para a construção do container utilizei docker, criando um dockerfile com base em uma imagem Ubuntu 22.04 e na configuração copiei os arquivos e executei os comandos necessarios para o script rodar 
+Quanto a infraestrutura utilizei o AWS ECR para armazenar minha imagem personalizada e escolhi usar o AWS ECS Fargate para criação do container e execução da tarefa 
+Para a parte de IaC preferi o Terraform pois alem dele ser multicloud, é a solução que tenho mais familiaridade. 
+Dificuldades encontradas durante a atividade: acabei gastando muito tempo com o desenvolvimento do script.
