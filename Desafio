@@ -1,1 +1,34 @@
+Para este desafio, você precisará implantar um web server para fornecer acesso a um script, que será detalhado abaixo para ser desenvolvido por você.
+A implantação precisa ser totalmente automatizada de forma que seja fácil implantar essa aplicação em um novo servidor. 
+Na Sensedia adoramos Terraform, Nginx, AWS e containers.
+Mas vocêpode usar outras ferramentas.
+O objetivo deste desafio é você nos apresentar o seu conhecimento sobre como implantar um aplicativo com uma infraestrutura totalmente automatizada.
+Sinta-se livre para usar a ferramenta que conhecer melhor. 
+Na avaliação do seu desafio será considerado a clareza e organização do seu código e se as tecnologias escolhidas são as mais adequadas para o propósito utilizado.
+O script que deverá ser apresentado na aplicação Web deverá resolver o seguinte problema:
+Possuímos 6 volumes representado pelas pastas abaixo:
+volume_1, volume_2, volume_3, volume_4, volume_5, volume_6
 
+Dentro de cada um destes volumes existem arquivos de textos com o nome
+calls_ano_mes_dia_nomedocliente e metrics_ano_mes_dia_nomedocliente.
+Ex:
+
+calls_2022_11_01_cliente1
+calls_2022_11_01_cliente2
+[...]
+metrics_2022_11_01_cliente1
+metrics_2022_10_31_cliente2
+[...]
+
+Precisamos de um script que execute os seguintes passos:
+- Realizar o filtro por nome de cliente - Ex: Cliente1
+- Realizar o filtro por tipo de arquivo - Ex: Calls ou Metrics
+- Realizar o filtro por data solicitada - Ex: 2022_11_01
+- Ao informar o nome de um cliente, excluir todos os arquivos dele
+- Trazer todos os arquivos que possuam mais de X dias filtrando por nomedocliente.
+-
+
+Para isso, será necessário baixar esse arquivo: challenge-sre-2023, este arquivo contém a
+representação dos volumes que serão necessários para o desafio.
+O script pode ser desenvolvido em qualquer linguagem que você tenha mais afinidade (EX: Shell,
+python, GO...).
