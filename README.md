@@ -11,9 +11,11 @@ Devido ao tempo e falta de conhecimento em determinados tópicos não foi possí
 Execução do container na instância EC2:
 
 Requisitos
+
 Antes de começar, certifique-se de ter o seguinte:
 
 Conta AWS ativa;
+
 Instância EC2 com docker, terraform e AWS CLI instalados;
 
 Faça o clone deste repositório na instância EC2.
@@ -24,18 +26,27 @@ Crie um diretório chamado "Dockerfile" e dentro dele crie um outro diretório c
 3. Arquivo challenger-2023 localizado na pasta "Desafio", responsável pelos dados do desafio;
 
 Configuração do container:
+
 Execute o comando "docker build -t (nome da imagem) . " para construir a imagem customizada que será utilizada no desafio;
+
 Em seguida execute o comando "docker run -it (nome da imagem)" para executar o seu container.
 
 Executando o script através do container criado:
+
 Assim que o container for executado será exibido um prompt solicitando as informações do nome do cliente (Ex: Cliente1), tipo de arquivo (Ex: Calls ou Metrics) e data solicitada (Ex: 2022_11_01):
 
 Prompt:
+
 Digite o nome do cliente que deseja filtrar:
+
 XXXXXXX
+
 Digite o tipo de arquivo que deseja filtrar (Calls ou Metrics):
+
 XXXXXXX
+
 Digite a data solicitada:
+
 XXXXXXX
 
 Logo após inserir as informações, o script irá filtrar todos os arquivos para a data, tipo e nome do cliente solicitado e em seguida deletar todos os arquivos do cliente selecionado dentro da pasta challenge-2023.
@@ -53,8 +64,9 @@ Provisionamento dos recursos via Terraform e ECS
 
 2. Em seguida realize o "push" da imagem através do AWS CLI para a mesma ficar registrada no ECR, para isso utilize os seguindos comandos:
 
- "docker tag nome_imagem:latest AWS_ID.dkr.ecr.us-east-1.amazonaws.com/nome_imagem:latest"
- "docker push AWS_ID.dkr.ecr.us-east-1.amazonaws.com/nome_imagem:latest" 
+"docker tag nome_imagem:latest AWS_ID.dkr.ecr.us-east-1.amazonaws.com/nome_imagem:latest"
+
+"docker push AWS_ID.dkr.ecr.us-east-1.amazonaws.com/nome_imagem:latest" 
 
 3. Clone o arquivo localizado na pasta "terraform" e preencha com os dados necessários para provisionar os recursos.
 
@@ -83,8 +95,11 @@ resource "aws_ecs_cluster" "nome_cluster" {
 }
 
 Após ajustar a stack é necessario executar os comandos abaixo nos diretorios que contem as configurações dos recursos (main.tf):
+
 "terraform init"
+
 "terraform plan"
+
 "terraform apply"
 
 Por fim acesse a console e valide a criação dos recursos.
