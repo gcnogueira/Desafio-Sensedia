@@ -73,25 +73,38 @@ Provisionamento dos recursos via Terraform e ECS
 task > main.tf = Arquivo responsável pela criação da task definition
 
 resource "aws_ecs_task_definition" "nome_task" {
+  
   family                   = "nome-task"
+  
   container_definitions    = jsonencode([{
+  
     name  = "nome_container"
+    
     image = "AWS_ID.dkr.ecr.us-east-1.amazonaws.com/nome_imagem:latest"
+    
     command = ["/bin/bash","script-desafio.sh"]
+  
   }])
+  
   execution_role_arn       = "arn:aws:iam::AWS_ID:role/"
+  
   task_role_arn            = "arn:aws:iam::AWS_ID:role/"
+  
   network_mode             = "awsvpc"
+  
   requires_compatibilities = ["FARGATE"]
 
   memory = 512
+  
   cpu    = 256
 }
 
 cluster > main.tf = Arquivo responsável pela criação do cluster ECS
 
 resource "aws_ecs_cluster" "nome_cluster" {
+  
   name = "nome_cluster"
+
 }
 
 Após ajustar a stack é necessario executar os comandos abaixo nos diretorios que contem as configurações dos recursos (main.tf):
