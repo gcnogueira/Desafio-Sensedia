@@ -1,5 +1,11 @@
 1. Descreva, em sua visão, o que é SRE? Se possível, dê algum exemplo.
+Na minha opinião, SRE é uma boa prática que visa garantir o funcionamento continuo de um serviço ou aplicação. Acredito que um exemplo de SRE seja a monitoração proativa ou AIOPS quando monitoramos visando reduzir os chamados que sejam repetitivos, criando automações que resolvam o problema quando o chamado cair. 
+
 2. Quais são os requisitos para que uma aplicação seja, de fato, auto-escalável?
-3. Você conhece algum pattern sobre a melhor forma de desenvolver e operar sistemas
-distribuídos? Se sim, disserte sobre.
+No meu ponto de vista, para que uma aplicação seja auto escalavel é preferível que seja feita em container (modular), assim é mais simples de escalar verticalmente adequando somente os recursos necessários, também é importante ter thresholds bem definidos na monitoração, pois ele que vai dizer qual o momento de escalar ou não e o mais importante é tem uma tecnologia que escale de forma automática, por exemplo, o auto scaling (serviço responsável por isso na AWS)
+
+3. Você conhece algum pattern sobre a melhor forma de desenvolver e operar sistemas distribuídos? Se sim, disserte sobre.
+Já ouvi sobre e sei que é algo como um padrão criado quando existe um problema recorrente, os pattern são soluções gerais que foram documentadas
+
 4. Quais são as principais vantagens de adotar arquiteturas baseadas em containers?
+Para mim a principal vantagem do container é facilidade de gerenciamento dos recursos, os aplicativos são armazenados isoladamente, e isso garante que eu possa movimentar eles, escalar de forma individual e gerenciar recursos e versões 
